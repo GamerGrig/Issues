@@ -1,20 +1,19 @@
-file_name = "file_name.txt"
-strings = ['Text for tell.',
+file_name = 'file_name.txt'
+
+strings = [
+    'Text for tell.',
     'Используйте кодировку utf-8.',
     'Because there are 2 languages!',
-    'Спасибо!']
+    'Спасибо!'
+]
 
 
 def custom_write(file_name, strings):
-    result = {}
+    positions = {}
+    with open(file_name, 'w', encoding='utf-8') as fs:
+        for i in range(len(strings)):
+            pos = fs.tell()
+            fs.write(strings[i] + '\n')
+            positions[i + 1, pos] = strings[i]
 
-    with open(file_name, 'w') as file:
-        for i, string in enumerate(strings, start=1):
-            byte_position = file.tell()
-            file.write(string + '\n')
-            result[(i, byte_position)] = string
-
-    return result
-
-result = custom_write(file_name, strings)
-print(result)
+    return positions
