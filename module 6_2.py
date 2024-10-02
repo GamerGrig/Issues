@@ -42,11 +42,11 @@ class Sedan(Vehicle):
             return self.limit
 
 
-vehicle1 = Sedan('Fedos', 'Toyota Mark II', 500, 'blue', 4)
+vehicle1 = Sedan('Fedos', 'Solaris', 400, 'blue', 4)
 print(vehicle1.print_info())
 vehicle1.set_color('Pink')
 vehicle1.set_color('BLACK')
 vehicle1.owner = 'Vasyok'
 print(vehicle1.print_info())
-print('*' * 20)
+print('~' * 20)
 print(vehicle1.limit)
