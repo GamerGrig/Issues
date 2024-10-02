@@ -1,25 +1,40 @@
-class Vehile:
+class Horse:
     def __init__(self):
-        self.vehile_type = None
+        self.x_distance = 0
+        self.sound = 'Frrr'
 
-class Car:
-    def __init__(self, power):
-        self.price = 1000000
-        self.power = power
+    def run(self, dx):
+        self.x_distance += dx
 
+class Eagle:
+    def __init__(self):
+        self.y_distance = 0
+        self.sound = 'I train, eat, sleep, and repeat'
 
-    def horse_powers(self):
-       return self.power
+    def fly(self, dy):
+        self.y_distance += dy
 
-class Nissan(Car, Vehile):
-    def __init__(self, power):
-        super().__init__(power)
-        self.price = 200000
-        self.vehile_type = 'Sedan'
+class Pegasus(Horse, Eagle):
+    def __init__(self):
+        Horse.__init__(self)
+        Eagle.__init__(self)
 
-    def horse_powers(self):
-        print(f'Power Nissan {self.power}')
+    def move(self, dx, dy):
+        self.run(dx)
+        self.fly(dy)
 
-car = Nissan(150)
+    def get_pos(self):
+        return (self.x_distance, self.y_distance)
 
-print(car.horse_powers(), car.price, car.vehile_type)
+    def voice(self):
+        print(self.sound)
+
+p1 = Pegasus()
+
+print(p1.get_pos())
+p1.move(10, 15)
+print(p1.get_pos())
+p1.move(-5, 20)
+print(p1.get_pos())
+
+p1.voice()
